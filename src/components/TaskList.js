@@ -10,7 +10,7 @@ class TaskList extends React.Component {
         //the key needs to be the first prop passed in to get rid of the error message 
         return this.props.tasks.map((task) => ( //for each todo that we map through, what do we want to show
             <div className="mx-auto">
-                <Task key={task.id} task={task} markComplete={this.props.markComplete} />
+                <Task key={task.id} task={task} markComplete={this.props.markComplete} markStar={this.props.markStar} />
             </div>
         ));
     }

@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
 
-  markComplete = (id) => {
+  markComplete = id => {
     console.log(id);
     this.setState({
       tasks: this.state.tasks.map(task => {
@@ -30,6 +30,18 @@ class App extends React.Component {
     });
   }
 
+
+  markStar = id => {
+    console.log(id)
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === id) {
+          task.starred = !task.starred
+        }
+        return task;
+      })
+    });
+  }
 
 
   render() {
@@ -46,12 +58,12 @@ class App extends React.Component {
         </div>
 
         <div className="row border border-dark">
-          <div className="col border border-dark">
+          <div className="col">
             <AddTask />
           </div>
 
-          <div className="col border border-dark">
-            <TaskList tasks={this.state.tasks} markComplete={this.markComplete} />
+          <div className="col">
+            <TaskList tasks={this.state.tasks} markComplete={this.markComplete} markStar={this.markStar} />
           </div>
         </div>
       </div>
