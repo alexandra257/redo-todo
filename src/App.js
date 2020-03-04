@@ -58,11 +58,11 @@ class App extends React.Component {
         </div>
 
         <div className="row border border-dark">
-          <div className="col">
+          <div className="col-lg-6">
             <AddTask />
           </div>
 
-          <div className="col">
+          <div className="col-lg-6">
             <TaskList tasks={this.state.tasks} markComplete={this.markComplete} markStar={this.markStar} />
           </div>
         </div>

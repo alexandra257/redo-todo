@@ -52,17 +52,17 @@ class Task extends React.Component {
 
         return (
             <div className="row mx-auto rounded" style={this.getStyle()}>
-                <IconButton aria-label="star" onClick={() => this.props.markStar(id)}>
+                <IconButton className="col-1 d-flex align-self-left" aria-label="star" onClick={() => this.props.markStar(id)}>
                     <StarIcon style={this.starButtonStyle()} />
                 </IconButton>
 
-                <div className="d-flex align-self-center"> {description}</div>
+                <div className="col-9 d-flex align-self-center"> {description}</div>
 
-                <IconButton aria-label="tick" onClick={() => this.props.markComplete(id)} >
+                <IconButton className="col-1 d-flex align-self-right" aria-label="tick" onClick={() => this.props.markComplete(id)} >
                     <AssignmentTurnedInIcon style={this.compButtonStyle()} />
                 </IconButton>
 
-                <IconButton aria-label="bin"><DeleteButton /></IconButton>
+                <IconButton className="col-1 d-flex align-self-right" aria-label="bin"><DeleteButton /></IconButton>
             </div>
         );
     }
