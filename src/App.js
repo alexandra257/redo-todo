@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import DateTime from './components/DateTime';
+import TaskList from './components/TaskList';
+import AddTask from './components/AddTask';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  state = {
+    tasks: [
+      { id: 1, description: 'this is a task', completed: false, starred: false },
+      { id: 2, description: 'this is another task', completed: false, starred: false },
+      { id: 3, description: 'this is a third task', completed: false, starred: false },
+    ]
+  }
+  render() {
+    return (
+      <div className="App container">
+
+        <div className="row">
+          <div className="col">
+            <Header />
+          </div>
+          <div className="col">
+            <DateTime />
+          </div>
+        </div>
+
+        <div className="row border border-dark">
+          <div className="col border border-dark">
+            <AddTask />
+          </div>
+
+          <div className="col border border-dark">
+            <TaskList tasks={this.state.tasks} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
 export default App;
