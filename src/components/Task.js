@@ -36,18 +36,12 @@ class Task extends React.Component {
         }
     }
 
-
     render() {
-
-
-
         const DeleteButton = styled(DeleteForeverIcon)({
             color: '#FE6B8B'
         });
 
-
-
-
+        //destructuring
         const { id, description } = this.props.task;
 
         return (
@@ -58,11 +52,16 @@ class Task extends React.Component {
 
                 <div className="col-9 d-flex align-self-center"> {description}</div>
 
-                <IconButton className="col-1 d-flex align-self-right" aria-label="tick" onClick={() => this.props.markComplete(id)} >
+                <IconButton
+                    className="col-1 d-flex align-self-right"
+                    aria-label="tick"
+                    onClick={() => this.props.markComplete(id)}
+                >
+
                     <AssignmentTurnedInIcon style={this.compButtonStyle()} />
                 </IconButton>
 
-                <IconButton className="col-1 d-flex align-self-right" aria-label="bin"><DeleteButton /></IconButton>
+                <IconButton className="col-1 d-flex align-self-right" aria-label="bin" onClick={() => this.props.markDelete(id)}><DeleteButton /></IconButton>
             </div>
         );
     }
