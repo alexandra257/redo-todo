@@ -11,7 +11,7 @@ function DateTime() {
     }
 
 
-    const date = moment().format('MMMM DD YYYY');
+    const date = moment().format('MMMM Do YYYY');
     const now = moment().format('h:mm:ss a');
 
     const [time, setTime] = useState(now);
